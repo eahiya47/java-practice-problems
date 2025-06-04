@@ -4,21 +4,23 @@ import java.util.Scanner;
 public class LetterNums {
 
     public static String print(String str){
-// a2n4c5
+
         String ans = "";
-        char[] ch = str.toCharArray();
-        char[] nums = {'1', '2', '3', '4', '5', '6', '7', '8', '9', '0'};
         int count = 0;
 
-        for(int i = 0; i < str.length(); i++){
-            for(int j = 0; j < nums.length; j++){
-                if(ch[i] == nums[j]){
-                    count = Integer.parseInt(String.valueOf(ch[i]));
-                    for(int k = 1; k <= count; k++){
-                        // System.out.print(ch[i-1]);
-                        ans += ch[i-1];
-                    }
-                }
+        // for(int i = 0; i < str.length(); i++){
+        //     if(Character.isDigit(str.charAt(i))){
+        //         count = Integer.parseInt(String.valueOf(str.charAt(i)));
+        //         for(int k = 1; k <= count; k++){
+        //             ans += str.charAt(i-1);
+        //         }
+        //     }
+        // }
+
+        for(int i = 1; i < str.length(); i+=2){
+            count = Integer.parseInt(String.valueOf(str.charAt(i)));
+            for(int k = 1; k <= count; k++){
+                ans += str.charAt(i-1);
             }
         }
     
@@ -33,9 +35,5 @@ public class LetterNums {
 
         System.out.println(res);
         sc.close();
-    }
-
-    private static boolean isNum (char letter) {
-        return letter >= '0' && letter <= '9';
     }
 }
